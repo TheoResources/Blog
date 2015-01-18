@@ -1,10 +1,12 @@
 package pl.theo.blog.app;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-
-
+import android.util.Log;
+import pl.theo.blog.app.lib.JSONAsyncTask;
+import pl.theo.blog.app.lib.JSONParser;
 
 
 /**
@@ -36,6 +38,8 @@ public class PostListActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_list);
+        JSONAsyncTask sync = new JSONAsyncTask();
+        sync.execute();
 
         if (findViewById(R.id.post_detail_container) != null) {
             // The detail container view will be present only in the
