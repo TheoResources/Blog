@@ -121,9 +121,6 @@ public class PostListFragment extends ListFragment {
 
     // Notify the active callbacks interface (the activity, if the
     // fragment is attached to one) that an item has been selected.
-    Log.d("POS ID", ""+position);
-    Log.d("ID", ""+id);
-   // Log.d("on item",""+JSONParser.postsItemMap.get(position).getId());
     mCallbacks.onItemSelected(JSONParser.postsItemMap.get(""+position).getId());
   }
 

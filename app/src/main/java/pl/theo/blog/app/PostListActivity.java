@@ -73,11 +73,9 @@ public class PostListActivity extends FragmentActivity
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.post_detail_container, fragment)
                     .commit();
-
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-
             Intent detailIntent = new Intent(this, PostDetailActivity.class);
             detailIntent.putExtra(PostDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);

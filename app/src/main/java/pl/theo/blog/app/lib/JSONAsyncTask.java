@@ -10,23 +10,20 @@ import java.util.List;
  * Created by michal.matlosz on 18.01.2015.
  */
 public class JSONAsyncTask extends AsyncTask<ArrayAdapter, Void, List<PostItem>> {
-  ArrayAdapter arrayAdapter;
+  private ArrayAdapter arrayAdapter;
 
   @Override
   protected List<PostItem> doInBackground(ArrayAdapter... arrayAdapters) {
     arrayAdapter = arrayAdapters[0];
     JSONParser jsonParser = new JSONParser();
-    String a = jsonParser.loadJsonDocument();
-    return jsonParser.parseJSONDocument(a);
+    String jsonDocument = jsonParser.loadJsonDocument();
+    return jsonParser.parseJSONDocument(jsonDocument);
   }
 
   @Override
-  protected void onPostExecute(List<PostItem> o) {
-
-    List<PostItem> postItems = o;
+  protected void onPostExecute(List<PostItem> postItemList) {
+    List<PostItem> postItems = postItemList;
     arrayAdapter.clear();
     arrayAdapter.addAll(postItems);
-
   }
-
 }

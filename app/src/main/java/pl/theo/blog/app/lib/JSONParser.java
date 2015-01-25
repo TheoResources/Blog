@@ -38,7 +38,7 @@ public class JSONParser {
       for (int i = 0; i < jsonArray.length(); i++) {
         JSONObject post = jsonArray.getJSONObject(i);
         PostItem postItem = new PostItem();
-        postItem.setId(""+i);
+        postItem.setId("" + i);
         postItem.setPostId(post.getString("id"));
         postItem.setAuthor(post.getString("author"));
         postItem.setDate(post.getString("date"));
@@ -47,9 +47,8 @@ public class JSONParser {
         posts.add(postItem);
         postsItemMap.put(postItem.getId(), postItem);
       }
-      Log.d("COUNT JSIN", ""+jsonArray.length());
     } catch (JSONException ex) {
-      Log.d("JSON parse doc", ex.getMessage());
+      return null;
     }
     return posts;
   }
@@ -71,11 +70,9 @@ public class JSONParser {
       return new String(content);
 
     } catch (MalformedURLException ex) {
-      Log.d("DD", ex.getMessage());
+      return "";
     } catch (IOException ex) {
-      Log.d("DD", ex.getMessage());
-
+      return "";
     }
-    return "";
   }
 }
