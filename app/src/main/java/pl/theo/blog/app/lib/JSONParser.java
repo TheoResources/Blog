@@ -1,7 +1,6 @@
 package pl.theo.blog.app.lib;
 
 import android.text.Html;
-import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,6 +30,10 @@ public class JSONParser {
     return this.url;
   }
 
+  public List<PostItem> getPosts() {
+    return parseJSONDocument(loadJsonDocument());
+  }
+
   public List<PostItem> parseJSONDocument(String jsonDocument) {
     try {
       JSONObject jsonObject = new JSONObject(jsonDocument);
@@ -38,7 +41,7 @@ public class JSONParser {
       for (int i = 0; i < jsonArray.length(); i++) {
         JSONObject post = jsonArray.getJSONObject(i);
         PostItem postItem = new PostItem();
-        postItem.setId("" + i);
+        postItem.setId(Integer.toString(i));
         postItem.setPostId(post.getString("id"));
         postItem.setAuthor(post.getString("author"));
         postItem.setDate(post.getString("date"));

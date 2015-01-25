@@ -15,9 +15,7 @@ public class JSONAsyncTask extends AsyncTask<ArrayAdapter, Void, List<PostItem>>
   @Override
   protected List<PostItem> doInBackground(ArrayAdapter... arrayAdapters) {
     arrayAdapter = arrayAdapters[0];
-    JSONParser jsonParser = new JSONParser();
-    String jsonDocument = jsonParser.loadJsonDocument();
-    return jsonParser.parseJSONDocument(jsonDocument);
+    return new JSONParser().getPosts();
   }
 
   @Override
