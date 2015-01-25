@@ -38,8 +38,6 @@ public class PostListActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_list);
-        JSONAsyncTask sync = new JSONAsyncTask();
-        sync.execute();
 
         if (findViewById(R.id.post_detail_container) != null) {
             // The detail container view will be present only in the
@@ -79,6 +77,7 @@ public class PostListActivity extends FragmentActivity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
+
             Intent detailIntent = new Intent(this, PostDetailActivity.class);
             detailIntent.putExtra(PostDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);

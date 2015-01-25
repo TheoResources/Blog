@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 
 /**
@@ -21,7 +22,9 @@ public class PostDetailActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_detail);
+
+        setContentView(R.layout.fragment_post_detail_web_view);
+        //setContentView(R.layout.activity_post_detail);
 
         // Show the Up button in the action bar.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -35,7 +38,7 @@ public class PostDetailActivity extends ActionBarActivity {
         //
         // http://developer.android.com/guide/components/fragments.html
         //
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null) {/*
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
@@ -45,7 +48,7 @@ public class PostDetailActivity extends ActionBarActivity {
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.post_detail_container, fragment)
-                    .commit();
+                    .commit();*/
         }
     }
 
